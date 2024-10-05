@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"] # ["projectpulse.com"]
 # Application definition
 
 INSTALLED_APPS = [
+    "accounts",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -50,6 +51,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "projectpulse.urls"
+
+AUTH_USER_MODEL ="accounts.CustomUser"
 
 TEMPLATES = [
     {
@@ -99,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-from django.contrib.auth.password_validation import NumericPasswordValidator
+#from django.contrib.auth.password_validation import NumericPasswordValidator
 
 
 # Internationalization

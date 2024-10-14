@@ -45,3 +45,5 @@ Learnings:
 - Running Django Server
 - Custom Users in Django
   
+  Day -2
+  - create 

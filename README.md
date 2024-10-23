@@ -55,3 +55,10 @@ Day -3 :
 
 Day -4 :
 
+- Created forms for user registration and login
+- added base template
+- added static files
+- updated setting to include template and static files
+
+day 5 :
+

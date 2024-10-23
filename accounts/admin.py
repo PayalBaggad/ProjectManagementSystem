@@ -1,10 +1,7 @@
-""" This model is used to register the models in the admin panel """
-
-# Register your models here.
+""" This module is used to register the models in the admin panel """
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-
 
 from accounts.forms import User, CustomUserChangeForm, CustomUserCreationForm
 
@@ -28,13 +25,13 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ["is_staff", "is_active", "is_superuser", "role"]
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name", "role")}),
+        ("Personal Info", {"fields": ("first_name", "last_name", "role")}),
         (
             "Permissions",
             {
                 "fields": (
-                    "is_staff",
                     "is_active",
+                    "is_staff",
                     "is_superuser",
                     "groups",
                     "user_permissions",
@@ -67,6 +64,5 @@ class CustomUserAdmin(UserAdmin):
 
     search_fields = ["email", "first_name", "last_name"]
     ordering = ["email"]
-
 
 admin.site.register(User, CustomUserAdmin)

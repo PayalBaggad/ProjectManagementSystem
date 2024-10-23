@@ -1,8 +1,11 @@
-""" This modules contains the forms for the account app"""
+""" This modules contains the urls for the accounts app."""
+
 from django.urls import path
-from accounts.views import RegisterView
+from accounts.views import RegisterView, LoginView, DashboardView
 
 urlpatterns = [
     path("register/", RegisterView.as_view(), name="register"),
-
+    path("login/", LoginView.as_view(), name="login"),
+    # path("logout/", LogoutView.as_view(), name="logout"),
+    path("dashboard", DashboardView.as_view(), name="home"),
 ]

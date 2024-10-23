@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-%!g6)uaiu2!it_wcax7$6&ttv==y$&u(62v&&k%s64xp!v^79y"
+SECRET_KEY = "django-insecure-31fmof%0#(=$9b7^-+^5!qh#h@8yu$mzo4sb3f&or8(i^pq_12"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -53,7 +53,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "projectpulse.urls"
 
-AUTH_USER_MODEL ="accounts.CustomUser"
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 TEMPLATES = [
     {
@@ -103,8 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#from django.contrib.auth.password_validation import NumericPasswordValidator
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -121,7 +119,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

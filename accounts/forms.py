@@ -1,6 +1,6 @@
-""" Forms for Account Model 
-    This module defines the forms used in the account app"""
+""" This module defines the forms used in the accounts app."""
 
+from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
@@ -8,12 +8,10 @@ User = get_user_model()
 
 
 class CustomUserCreationForm(UserCreationForm):
-    """Form for creating new user
-    This class defines the form for creating a new user"""
+    """This class defines the form for creating a new user"""
 
     class Meta(UserCreationForm.Meta):
-        """Meta class for CustomUserCreationForm
-        This class defines the metadata for the CustomUserCreationForm"""
+        """This class defines the metadata for the CustomUserCreationForm"""
 
         model = User
         fields = [
@@ -32,11 +30,10 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
-    """Form for updating existing user
-    This class defines the form for updating a user"""
+    """This class defines the form for updating a user"""
 
     class Meta(UserChangeForm.Meta):
-        """Meta class for CustomUserChangeForm"""
+        """This class defines the metadata for the CustomUserChangeForm"""
 
         model = User
         fields = [
@@ -57,7 +54,7 @@ class UserRegistrationForm(UserCreationForm):
     """This class defines the form for creating a new user via UI"""
 
     class Meta(UserCreationForm.Meta):
-        """This class defines the metadata for the UserRegistration"""
+        """This class defines the metadata for the UserRegistrationForm"""
 
         model = User
         fields = [
@@ -70,7 +67,7 @@ class UserRegistrationForm(UserCreationForm):
         ]
 
     def __init__(self, *args, **kwargs):
-        """This method initialize the UserRegistrationForm"""
+        """This method initializes the UserRegistrationForm"""
         super().__init__(*args, **kwargs)
         self.fields["email"].widget.attrs.update(
             {"autofocus": True, "placeholder": "Email", "class": "form-control"}
@@ -104,24 +101,12 @@ class UserRegistrationForm(UserCreationForm):
         return user
 
 
-class UserLoginForm(UserCreationForm):
+class UserLoginForm(forms.Form):
     """This class defines the form for logging in a user"""
 
-    class Meta(UserCreationForm.Meta):
-        """This class defines the metadata for the user login form"""
-
-        model = User
-        fields = [
-            "email",
-            "password",
-        ]
-
-    def __init__(self, *args, **kwargs):
-        """This method initialize the UserLoginForm"""
-        super().__init__(args, **kwargs)
-        self.fields["email"].widget.attrs.update(
-            {"autofocus": True, "placeholder": "Email", "class": "form-control"}
-        )
-        self.fields["password"].widget.attrs.update(
-            {"autofocus": True, "placeholder": "Password", "class": "form-control"}
-        )
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={"autofocus": True, "placeholder": "Email", "class": "form-control"})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"autofocus": True, "placeholder": "Password", "class": "form-control"})
+    )

@@ -45,5 +45,8 @@ Learnings:
 - Running Django Server
 - Custom Users in Django
   
-  Day -2
-  - create 
+Day -2
+- Create Custom User in Django (Abstract User)
+  
+Day -3
+- Forms and Admin Panel
